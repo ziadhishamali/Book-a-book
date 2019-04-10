@@ -1,0 +1,33 @@
+<head>
+
+	<link rel="stylesheet" type="text/css" href="index style.css">
+	<link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+	<link rel="icon" type="image/PNG" href="backgrounds/Untitled-6.png">
+
+	<title>Book a Book</title>
+
+	<script type="text/javascript"
+	>$(function () {
+	  $(document).scroll(function () {
+	    var $nav = $(".navbar-fixed-top");
+	    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+	  });
+	});
+	</script>
+
+
+</head>
+<div class="dd">
+	
+<h1>New Book </h1>
+
+<div class="informations">
+<%= render 'form', book: @book %>
+</div>
+</div>
+<div class="jumbotron jumbotron-fluid">
+  <div class="dd">
+   <h1 class="display-4">Don't forgit to delete the Book After the DEAL!</h1>
+   <%= link_to 'Back', books_path, class: 'btn btn-primary'%> 
+  </div>
+</div>

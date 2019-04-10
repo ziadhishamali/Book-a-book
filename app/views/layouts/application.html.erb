@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Book A Book</title>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tag %>
+    <%= javascript_include_tag "jquery_ujs" %>
+    <link rel="stylesheet" type="text/css" href="index style.css">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' %>
+  </head>
+
+  <body>
+    
+    <nav class="navBar">
+        <a class="tit" >Book a Book <i class="icon"></i></a>
+        <ul> <%= link_to "Home" , home_index_path %> </ul>
+        <ul> <%= link_to "Buy/Borrow" , books_path %> </ul>
+        <ul> <%= link_to "Sell/Lend" , new_book_path %> </ul>
+        <a class="about" <%= link_to "About Us" , home_About_path %></a>
+        <a class="about" <%= link_to "Sign in" , new_user_session_path %></a>
+      </nav>
+
+        <div class="header">
+         
+         <div class="progress-container">
+           <div class="progress-bar" id="myBar"></div>
+         </div>
+        </div>
+
+    <div class="dd">
+      <% flash.each do |name , msg| %>
+        <%= content_tag( :div,msg, class: "alert alert-info")%>
+      <% end %>
+    </div>
+    <%= yield %>
+  
+  
+  </body>
+
+</html>

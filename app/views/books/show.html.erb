@@ -1,0 +1,54 @@
+<div class="dd">
+
+<p id="notice"><%= notice %></p>
+
+<div class="dv">
+  <p>  
+    <%=image_tag @book.image.url(:thumb) %>
+  </p>
+</div></br></br></br></br>
+
+<p class="db">Get this book!!</p></br></br></br></br></br></br>
+<div class="dp">
+<p>
+  <strong>Book name:</strong>
+  <%= @book.book_name %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @book.Author %>
+</p>
+
+<p>
+  <strong>Seller name:</strong>
+  <%= @book.seller_name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @book.price %>
+</p>
+
+<p>
+  <strong>Tel number:</strong>
+  <%= @book.tel_number %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @book.address %>
+</p>
+        <% if user_signed_in? %>
+          <% if @book.user == current_user %>
+            <%= link_to 'Edit', edit_book_path(@book) %> 
+          <% end %>
+        <% end %></br></br></br></br></br></br>
+</div>
+</div>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="dd">
+   <%= link_to 'Back', books_path, class: 'btn btn-primary'%> 
+</div>
+</div>

@@ -1,0 +1,46 @@
+<head>
+
+  <link rel="stylesheet" type="text/css" href="index style.css">
+  <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+  <link rel="icon" type="image/PNG" href="backgrounds/Untitled-6.png">
+
+  <title>Book a Book</title>
+
+
+</head>
+
+
+<div class="dd">
+  <p id="notice"><%= notice %></p>
+
+<h1>Books</h1></br></br>
+  <div class="card-deck">
+    <% @books.each do |book| %>
+      <div class="col-md-3">
+      <div class="card">
+        <%= link_to image_tag(book.image.url(:medium)), book, class: 'card-img-top'  %> 
+        <div class="card-body">
+           <h5 class="card-title"><%= book.book_name %></h5>
+              
+            <%= book.Author %> </br>     
+          <strong>Price:</strong><%= book.price %>
+          <div class="card-footer">
+          <% if user_signed_in? %>
+            <% if book.user.id == current_user.id %>
+              <%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        <% end %>
+        </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<div class="jumbotron jumbotron-fluid">
+  <div class="dd">
+   <h1 class="display-4">Add A book Now!</h1>
+
+   <%= link_to 'New Book', new_book_path, class: 'btn btn-primary'%> 
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="index style.css">
+	<link rel="stylesheet" type="text/css" href="dynamic.css">
+	<link rel="stylesheet" type="text/javascript" href="dynamic.js">
+	<link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+
+	<title>Book a Book</title>
+
+
+
+</head>
+
+<body>
+	<%= image_tag("books_library_old_111388_1920x1080.jpg") %>
+	<div class="description">
+	  <div class="parallax"></div>
+		<div class="blurredbackground"></div>
+
+		<p><span class="Reading">Reading</span><span class="firstLine"> books hasn't been easier,<br>
+		You don't have an Excuse not to read<br>
+		Find now books for your favorite author with ease.</span><br><br><br><br><br>
+		<%= image_tag("2.jpg") %><br><br><br><br><br>
+		<span class="choosing">Choose</span> the way you want to read your favourite books.<br>  Borrow, Buy and Benefit from your old books</p>
+		<br><br><br><br><br>
+		<%= image_tag("3.jpg") %><br>
+		<div class="jumbotron jumbotron-fluid">
+		  <div class="dd">
+			<% if user_signed_in? %>
+
+				<%= link_to 'logout', destroy_user_session_path,:method => 'delete' , method: :delete, class: 'btn btn-primary'%>
+				<%= link_to 'List Books', books_path , class: 'btn btn-primary'%></br></br>
+			<% else %>
+				<h1 class="display-4">Join Us Now</h1>
+				<%= link_to 'login', new_user_session_path , class: 'btn btn-primary'%>
+				<%= link_to 'join', new_user_registration_path, class: 'btn btn-primary'%></br></br>
+			<% end %>
+		  </div>
+		</div>
+  </div>
+  </div>
+</body>
+
+</html>
